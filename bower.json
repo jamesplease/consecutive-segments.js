@@ -1,0 +1,31 @@
+{
+  "name": "consecutive-segments.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jmeas/consecutive-segments.js",
+  "authors": [
+    "Jmeas <jellyes2@gmail.com>"
+  ],
+  "description": "Group consecutive segments.",
+  "main": "dist/consecutive-segments.js",
+  "keywords": [
+    "segments",
+    "time",
+    "calendar",
+    "event",
+    "data",
+    "visualization",
+    "grouping"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "1.4.4 - 1.7.0",
+    "moment": "~2.9.0"
+  }
+}
