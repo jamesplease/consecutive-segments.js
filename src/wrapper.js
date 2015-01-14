@@ -4,7 +4,7 @@
   } else if (typeof exports !== 'undefined') {
     module.exports = factory(require('underscore'));
   } else {
-    root.TimeSegments = factory(root._);
+    root.ConsecutiveSegments = factory(root._);
   }
 })(this, function(_) {
   'use strict';
