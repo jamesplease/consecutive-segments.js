@@ -1,4 +1,4 @@
-# consecutive-segments.js
+# consecutive-segments.js [![Travis build status](http://img.shields.io/travis/jmeas/consecutive-segments.js.svg?style=flat)](https://travis-ci.org/jmeas/consecutive-segments.js)
 
 [time-segments.js](https://github.com/jmeas/time-segments.js) outputs segments. This
 library will group consecutive segments.
