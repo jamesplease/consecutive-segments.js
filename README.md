@@ -27,7 +27,8 @@ This library transforms segments from this form:
 ```js
 {
   1000: [eventOne, eventTwo]
-}`
+}
+```
 
 to be of this form:
 
