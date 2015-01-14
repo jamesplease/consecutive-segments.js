@@ -20,7 +20,7 @@ is an array of consecutive segments.
 
 `scale` can be any of the resolutions supported by [moment.js](http://momentjs.com/).
 A short list of examples include `days`, `years`, `weeks`. Moment's abbrevations
-are also supported, as in `w` for `weeks.`
+are also supported, as in `w` for `weeks.` The default scale is `weeks`.
 
 This library transforms segments from this form:
 
