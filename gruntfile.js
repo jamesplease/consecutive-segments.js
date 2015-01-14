@@ -6,13 +6,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     meta: {
       version: '<%= pkg.version %>',
-      banner: '// TimeSegments v<%= meta.version %>\n'
+      banner: '// ConsecutiveSegments v<%= meta.version %>\n'
     },
 
     preprocess: {
       segments: {
         src: 'src/wrapper.js',
-        dest: 'tmp/time-segments.js'
+        dest: 'tmp/consecutive-segments.js'
       }
     },
 
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
       },
       segments: {
         src: '<%= preprocess.segments.dest %>',
-        dest: 'dist/time-segments.js'
+        dest: 'dist/consecutive-segments.js'
       }
     },
 
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
       },
       segments: {
         src: '<%= concat.segments.dest %>',
-        dest: 'dist/time-segments.min.js',
+        dest: 'dist/consecutive-segments.min.js',
         options: {
           sourceMap: true
         }
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
         options: {
           jshintrc: '.jshintrc'
         },
-        src: ['src/time-segments.js']
+        src: ['src/consecutive-segments.js']
       },
       tests: {
         options: {

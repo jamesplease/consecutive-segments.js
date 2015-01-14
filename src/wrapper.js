@@ -10,5 +10,5 @@
   'use strict';
 
   // @include ./consecutive-segments.js
-  return TimeSegments;
+  return ConsecutiveSegments;
 });
