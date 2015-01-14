@@ -21,3 +21,19 @@ is an array of consecutive segments.
 `scale` can be any of the resolutions supported by [moment.js](http://momentjs.com/).
 A short list of examples include `days`, `years`, `weeks`. Moment's abbrevations
 are also supported, as in `w` for `weeks.`
+
+This library transforms segments from this form:
+
+```js
+{
+  1000: [eventOne, eventTwo]
+}`
+
+to be of this form:
+
+```js
+{
+  timestamp: 1000,
+  segments: [eventOne, eventTwo]
+}
+```
