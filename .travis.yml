@@ -1,3 +1,18 @@
 language: node_js
 node_js:
   - "0.10"
+matrix:
+  include:
+    - node_js: "0.10"
+      env: UNDERSCORE=1.4.4 MAINRUN=false
+    - node_js: "0.10"
+      env: UNDERSCORE=1.5 MAINRUN=false
+    - node_js: "0.10"
+      env: UNDERSCORE=1.6 MAINRUN=false
+env: MAINRUN=true
+before_install:
+  - npm config set ca ""
+install:
+  - npm install
+  # Which matrix settings -- otherwise default
+  - if [[ $MAINRUN == false ]]; then npm install underscore@$UNDERSCORE; fi
