@@ -11,15 +11,15 @@ var ConsecutiveSegments = {
 
   // Segment an array of events by scale
   group(segments, scale='weeks') {
-    var segmentCount = _.keys(segments).length;
+    var segmentCount = _.size(segments);
 
     if (!segments || segmentCount === 0) {
       return [];
     }
 
     // Convert the objects into arrays for comparing
-    segments = _.map(segments, (segment, timestamp) => {
-      return { timestamp, segment };
+    segments = _.map(segments, (events, timestamp) => {
+      return { timestamp, events };
     });
 
     var groups = [], currentMoment, prevMoment;
@@ -40,7 +40,7 @@ var ConsecutiveSegments = {
       if (!groups[currentGroup]) {
         groups[currentGroup] = [];
       }
-      groups[currentGroup].push(s);
+      groups[currentGroup].push(_.clone(s));
     });
 
     return groups;
