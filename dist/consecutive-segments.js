@@ -16,22 +16,20 @@
     // Segment an array of events by scale
     group: function group(segments) {
       var scale = arguments[1] === undefined ? "weeks" : arguments[1];
-      var segmentCount = _.keys(segments).length;
+      var segmentCount = _.size(segments);
 
       if (!segments || segmentCount === 0) {
         return [];
       }
 
-      // Convert the objects into arrays for comparing
-      segments = _.map(segments, function (segment, timestamp) {
-        return { timestamp: timestamp, segment: segment };
-      });
-
-      var groups = [], currentMoment, prevMoment;
-      var currentGroup = 0;
-      _.each(segments, function (s, index) {
+      var currentGroup = 0, groups = [], currentMoment, prevMoment;
+      _.chain(segments).map(function (events, timestamp) {
+        return { timestamp: timestamp, events: events };
+      }).each(function (s, index, segments) {
         // Check to see if the current group is the same
-        // as the previous group by comparing
+        // as the previous group by computing the difference
+        // in their timestamps. > 1 means that they aren't
+        // consecutive.
         if (index !== 0) {
           currentMoment = moment.unix(s.timestamp).utc();
           prevMoment = moment.unix(segments[index - 1].timestamp).utc();
@@ -44,7 +42,7 @@
         if (!groups[currentGroup]) {
           groups[currentGroup] = [];
         }
-        groups[currentGroup].push(s);
+        groups[currentGroup].push(_.clone(s));
       });
 
       return groups;

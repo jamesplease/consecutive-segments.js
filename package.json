@@ -1,6 +1,6 @@
 {
   "name": "consecutive-segments.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Group consecutive segments.",
   "main": "dist/consecutive-segments",
   "scripts": {
