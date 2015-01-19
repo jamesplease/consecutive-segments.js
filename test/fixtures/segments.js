@@ -37,4 +37,3 @@ fixtures.mixed = {
   2: 'two',
   4: 'four'
 };
-
