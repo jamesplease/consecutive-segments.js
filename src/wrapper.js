@@ -1,14 +1,17 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['underscore'], factory);
+    define(['underscore', 'moment'], factory);
   } else if (typeof exports !== 'undefined') {
-    module.exports = factory(require('underscore'));
+    var _ = require('underscore');
+    var moment = require('moment');
+    module.exports = factory(_, moment);
   } else {
-    root.ConsecutiveSegments = factory(root._);
+    root.<%= exportVarName %> = factory(root._, root.moment);
   }
-})(this, function(_) {
+})(this, function(_, moment) {
   'use strict';
 
   // @include ./consecutive-segments.js
-  return ConsecutiveSegments;
+  
+  return <%= exportVarName %>;
 });

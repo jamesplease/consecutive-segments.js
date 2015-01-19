@@ -1,0 +1,11 @@
+{
+  "destinationFolder": "dist",
+  "exportFileName": "consecutive-segments",
+  "entryFileName": "consecutive-segments",
+  "exportVarName": "ConsecutiveSegments",
+  "mochaGlobals": [
+    "stub", "spy", "expect",
+    "TimeSegments", "fixtures",
+    "_", "moment"
+  ]
+}

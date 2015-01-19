@@ -1,8 +1,16 @@
+// Place your library's code here
+//
+// If you add additional files, be sure to
+// load them in order in ./wrapper.js
+//
+
+import _ from 'underscore';
+import moment from 'moment';
+
 var ConsecutiveSegments = {
 
   // Segment an array of events by scale
-  group: function(segments, scale) {
-    scale = scale || 'weeks';
+  group(segments, scale='weeks') {
     var segmentCount = _.keys(segments).length;
 
     if (!segments || segmentCount === 0) {
@@ -10,16 +18,13 @@ var ConsecutiveSegments = {
     }
 
     // Convert the objects into arrays for comparing
-    segments = _.map(segments, function(segment, timestamp) {
-      return {
-        timestamp: timestamp,
-        segment: segment
-      };
+    segments = _.map(segments, (segment, timestamp) => {
+      return { timestamp, segment };
     });
 
-    var groups = [], currentMoment, prevMoment, push;
+    var groups = [], currentMoment, prevMoment;
     var currentGroup = 0;
-    _.each(segments, function(s, index) {
+    _.each(segments, (s, index) => {
 
       // Check to see if the current group is the same
       // as the previous group by comparing
@@ -41,3 +46,5 @@ var ConsecutiveSegments = {
     return groups;
   }
 };
+
+export default ConsecutiveSegments;
