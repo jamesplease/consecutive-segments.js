@@ -16,14 +16,14 @@ describe('milliseconds', function() {
     it('return a segment of "one" for the first group', function() {
       expect(this.result[0][0]).to.deep.equal({
         timestamp: '1',
-        segment: 'one'
+        events: 'one'
       });
     });
 
     it('return a segment of "three" for the second group', function() {
       expect(this.result[1][0]).to.deep.equal({
         timestamp: '3',
-        segment: 'three'
+        events: 'three'
       });
     });
   });
@@ -44,14 +44,14 @@ describe('milliseconds', function() {
     it('return segment "one" for the first segment', function() {
       expect(this.result[0][0]).to.deep.equal({
         timestamp: '1',
-        segment: 'one'
+        events: 'one'
       });
     });
 
     it('return segment "two" for the second segment', function() {
       expect(this.result[0][1]).to.deep.equal({
         timestamp: '2',
-        segment: 'two'
+        events: 'two'
       });
     });
   });
@@ -76,21 +76,21 @@ describe('milliseconds', function() {
     it('return segment "one" for the first segment in group 1', function() {
       expect(this.result[0][0]).to.deep.equal({
         timestamp: '1',
-        segment: 'one'
+        events: 'one'
       });
     });
 
     it('return segment "two" for the second segment in group 1', function() {
       expect(this.result[0][1]).to.deep.equal({
         timestamp: '2',
-        segment: 'two'
+        events: 'two'
       });
     });
 
     it('return segment "four" for the segment in group 2', function() {
       expect(this.result[1][0]).to.deep.equal({
         timestamp: '4',
-        segment: 'four'
+        events: 'four'
       });
     });
   });
