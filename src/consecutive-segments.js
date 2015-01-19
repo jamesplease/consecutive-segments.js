@@ -17,31 +17,31 @@ var ConsecutiveSegments = {
       return [];
     }
 
-    // Convert the objects into arrays for comparing
-    segments = _.map(segments, (events, timestamp) => {
-      return { timestamp, events };
-    });
+    var currentGroup = 0, groups = [], currentMoment, prevMoment;
+    _.chain(segments)
+      .map((events, timestamp) => {
+        return { timestamp, events };
+      })
+      .each((s, index, segments) => {
 
-    var groups = [], currentMoment, prevMoment;
-    var currentGroup = 0;
-    _.each(segments, (s, index) => {
-
-      // Check to see if the current group is the same
-      // as the previous group by comparing
-      if (index !== 0) {
-        currentMoment = moment.unix(s.timestamp).utc();
-        prevMoment = moment.unix(segments[index - 1].timestamp).utc();
-        if (currentMoment.diff(prevMoment, scale) > 1) {
-          currentGroup++;
+        // Check to see if the current group is the same
+        // as the previous group by computing the difference
+        // in their timestamps. > 1 means that they aren't
+        // consecutive.
+        if (index !== 0) {
+          currentMoment = moment.unix(s.timestamp).utc();
+          prevMoment = moment.unix(segments[index - 1].timestamp).utc();
+          if (currentMoment.diff(prevMoment, scale) > 1) {
+            currentGroup++;
+          }
         }
-      }
 
-      // Ensure that the group exists, then push to it
-      if (!groups[currentGroup]) {
-        groups[currentGroup] = [];
-      }
-      groups[currentGroup].push(_.clone(s));
-    });
+        // Ensure that the group exists, then push to it
+        if (!groups[currentGroup]) {
+          groups[currentGroup] = [];
+        }
+        groups[currentGroup].push(_.clone(s));
+      });
 
     return groups;
   }
