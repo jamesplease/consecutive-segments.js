@@ -1,5 +1,7 @@
 # consecutive-segments.js
 [![Travis build status](http://img.shields.io/travis/jmeas/consecutive-segments.js.svg?style=flat)](https://travis-ci.org/jmeas/consecutive-segments.js)
+[![Code Climate](https://codeclimate.com/github/jmeas/consecutive-segments.js/badges/gpa.svg)](https://codeclimate.com/github/jmeas/consecutive-segments.js)
+[![Test Coverage](https://codeclimate.com/github/jmeas/consecutive-segments.js/badges/coverage.svg)](https://codeclimate.com/github/jmeas/consecutive-segments.js)
 [![Dependency Status](https://david-dm.org/jmeas/consecutive-segments.js.svg)](https://david-dm.org/jmeas/consecutive-segments.js) 
 [![devDependency Status](https://david-dm.org/jmeas/consecutive-segments.js/dev-status.svg)](https://david-dm.org/jmeas/consecutive-segments.js#info=devDependencies)
 
