@@ -1,6 +1,6 @@
 describe('when a single segment is passed in', function() {
   beforeEach(function() {
-    this.result = ConsecutiveSegments.group({
+    this.result = consecutiveSegments({
       1000: 'james'
     });
   });

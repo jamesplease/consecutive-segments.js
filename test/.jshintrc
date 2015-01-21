@@ -65,7 +65,7 @@
   "yui"           : false,
   "globals": {
     "fixtures": true,
-    "ConsecutiveSegments": true,
+    "consecutiveSegments": true,
     "_": true,
     "console": true,
     "sinon": true,
