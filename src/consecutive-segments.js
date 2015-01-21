@@ -11,11 +11,7 @@ var ConsecutiveSegments = {
 
   // Segment an array of events by scale
   group(segments, scale='weeks') {
-    var segmentCount = _.size(segments);
-
-    if (!segments || segmentCount === 0) {
-      return [];
-    }
+    if (_.isEmpty(segments)) { return []; }
 
     var currentGroup = 0, groups = [], currentMoment, prevMoment;
     _.chain(segments)
