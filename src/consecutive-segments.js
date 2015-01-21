@@ -13,17 +13,17 @@ var ConsecutiveSegments = {
   group(segments, scale='weeks') {
     if (_.isEmpty(segments)) { return []; }
 
-    var currentGroup = 0, groups = [], currentMoment, prevMoment;
-    _.chain(segments)
+    let currentGroup = 0, currentMoment, prevMoment;
+    return _.chain(segments)
       .map((events, timestamp) => {
         return { timestamp, events };
       })
-      .each((s, index, segments) => {
+      .reduce((memo, s, index, segments) => {
 
         // Check to see if the current group is the same
         // as the previous group by computing the difference
-        // in their timestamps. > 1 means that they aren't
-        // consecutive.
+        // in their timestamps. They aren't consecutive when
+        // the difference is > 1
         if (index !== 0) {
           currentMoment = moment.unix(s.timestamp).utc();
           prevMoment = moment.unix(segments[index - 1].timestamp).utc();
@@ -33,13 +33,13 @@ var ConsecutiveSegments = {
         }
 
         // Ensure that the group exists, then push to it
-        if (!groups[currentGroup]) {
-          groups[currentGroup] = [];
+        if (!memo[currentGroup]) {
+          memo[currentGroup] = [];
         }
-        groups[currentGroup].push(_.clone(s));
-      });
-
-    return groups;
+        memo[currentGroup].push(_.clone(s));
+        return memo;
+      }, [])
+      .value();
   }
 };
 
