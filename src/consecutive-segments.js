@@ -24,7 +24,7 @@ var ConsecutiveSegments = {
         // as the previous group by computing the difference
         // in their timestamps. They aren't consecutive when
         // the difference is > 1
-        if (index !== 0) {
+        if (index) {
           currentMoment = moment.unix(s.timestamp).utc();
           prevMoment = moment.unix(segments[index - 1].timestamp).utc();
           if (currentMoment.diff(prevMoment, scale) > 1) {
