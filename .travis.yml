@@ -16,3 +16,7 @@ install:
   - npm install
   # Which matrix settings -- otherwise default
   - if [[ $MAINRUN == false ]]; then npm install underscore@$UNDERSCORE; fi
+script: if [[ $MAINRUN == true ]]; then gulp coverage; fi
+after_success:
+  - if [[ $MAINRUN == true ]]; then npm install -g codeclimate-test-reporter; fi
+  - if [[ $MAINRUN == true ]]; then codeclimate < coverage/lcov.info; fi
