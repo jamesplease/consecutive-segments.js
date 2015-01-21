@@ -1,7 +1,7 @@
 describe('milliseconds', function() {
   describe('disconnected', function() {
     beforeEach(function() {
-      this.result = ConsecutiveSegments.group(fixtures.disconnected, 'seconds');
+      this.result = consecutiveSegments(fixtures.disconnected, 'seconds');
     });
 
     it('should return two groups', function() {
@@ -30,7 +30,7 @@ describe('milliseconds', function() {
 
   describe('connected', function() {
     beforeEach(function() {
-      this.result = ConsecutiveSegments.group(fixtures.connected, 'seconds');
+      this.result = consecutiveSegments(fixtures.connected, 'seconds');
     });
 
     it('should return one group', function() {
@@ -58,7 +58,7 @@ describe('milliseconds', function() {
 
   describe('mixed', function() {
     beforeEach(function() {
-      this.result = ConsecutiveSegments.group(fixtures.mixed, 'seconds');
+      this.result = consecutiveSegments(fixtures.mixed, 'seconds');
     });
 
     it('should return two groups', function() {
