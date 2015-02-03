@@ -1,17 +1,8 @@
-(function (root, factory) {
-  if (typeof define === "function" && define.amd) {
-    define(["underscore", "moment"], factory);
-  } else if (typeof exports !== "undefined") {
-    var _ = require("underscore");
-    var moment = require("moment");
-    module.exports = factory(_, moment);
-  } else {
-    root.consecutiveSegments = factory(root._, root.moment);
-  }
+(function (global, factory) {
+  typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory(require("underscore"), require("moment")) : typeof define === "function" && define.amd ? define(["underscore", "moment"], factory) : global.consecutiveSegments = factory(global._, global.moment);
 })(this, function (_, moment) {
   "use strict";
 
-  // Segment an array of events by scale
   var consecutiveSegments = function (segments) {
     var scale = arguments[1] === undefined ? "weeks" : arguments[1];
     if (_.isEmpty(segments)) {
@@ -45,9 +36,8 @@
     }, []).value();
   };
 
+  var consecutive_segments = consecutiveSegments;
 
-
-
-  return consecutiveSegments;
+  return consecutive_segments;
 });
-//# sourceMappingURL=consecutive-segments.js.map
+//# sourceMappingURL=./consecutive-segments.js.map
