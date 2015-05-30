@@ -1,8 +1,20 @@
 import _ from 'underscore';
 import moment from 'moment';
+import 'moment-business';
 
 // Segment an array of events by scale
-var consecutiveSegments = function(segments, scale='weeks') {
+var consecutiveSegments = function(segments, options = {}) {
+
+  // Set our defaults
+  _.defaults({}, options, {
+    scale: 'weeks',
+    ignoreWeekends: false
+  });
+
+  // Pull out our optios
+  var { scale, ignoreWeekends } = options;
+
+  // If there aren't any segments, then we can bail out early
   if (_.isEmpty(segments)) { return []; }
 
   let currentGroup = 0, currentMoment, prevMoment;
@@ -19,7 +31,15 @@ var consecutiveSegments = function(segments, scale='weeks') {
       if (index) {
         currentMoment = moment.unix(s.timestamp).utc();
         prevMoment = moment.unix(segments[index - 1].timestamp).utc();
-        if (currentMoment.diff(prevMoment, scale) > 1) {
+
+        var diffSize = 0;
+        if (moment.normalizeUnits(scale) === 'day' && ignoreWeekends) {
+          diffSize = currentMoment.weekDays(prevMoment);
+        } else {
+          diffSize = currentMoment.diff(prevMoment, scale);
+        }
+
+        if (diffSize > 1) {
           currentGroup++;
         }
       }

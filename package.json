@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "moment": "^2.9.0",
+    "moment-business": "^2.0.0",
     "underscore": "1.4.4 - 1.7.0"
   }
 }

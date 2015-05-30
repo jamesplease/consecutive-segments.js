@@ -37,3 +37,17 @@ fixtures.mixed = {
   2: 'two',
   4: 'four'
 };
+
+//
+//  Thu   Fri    Sat   Sun    Mon   
+//  x     x                   x
+//
+
+fixtures.weekends = {
+  // Thursday, May 28th, 2015
+  1432785600: 'one',
+  // Friday, May 29th, 2015
+  1432872000: 'two',
+  // Monday, June 1st, 2015
+  1433131200: 'four'
+};
